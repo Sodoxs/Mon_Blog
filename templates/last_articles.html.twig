@@ -1,0 +1,12 @@
+{# src/templates/last_articles.html.twig #}
+
+<br>
+Les derniers articles :
+{% for article in articles %}
+    <div class="text-center">
+        articles : {{ article.title }} :
+        <br>
+        <a class="btn btn-info" href="/blog/article/{{ article.id }}">lien vers l'article</a>
+    </div>
+{% endfor %}
+<br>

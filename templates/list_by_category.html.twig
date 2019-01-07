@@ -1,0 +1,50 @@
+{# src/templates/list.html.twig #}
+
+{% extends "accueil_blog.html.twig" %}
+
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}"/>
+{% endblock %}
+{% block sub_body %}
+
+    <div class="text-center">Categorie : {{ category.name }}</div>
+    <br>
+
+    {% for article in articles %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3">
+                    id : {{ article.id }}
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    titre : {{ article.title }}
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    description : {{ article.content | slice(0, max_char)}} :
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <a class="btn btn-info" href="/blog/article/{{ article.id }}">lien vers l'article</a>
+                </div>
+                <br>
+                {% for comment in article.comments %}
+                    <div class=" col-12 border border-top"></div>
+                    <div class="col-sm-12 col-md-6 text-center">
+                        Auteur : {{ comment.author }}
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-center">
+                        Commentaire : {{ comment.message }}
+                    </div>
+                {% endfor %}
+                <div class="col-12 border border-bottom"></div>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+
+{% endblock %}
+
+
+
+
+

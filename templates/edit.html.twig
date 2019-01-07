@@ -1,0 +1,34 @@
+{% extends "accueil_blog.html.twig" %}
+
+{% block h1 %} modifier - article {% endblock %}
+
+{% block sub_body %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div>
+        <div>
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+        </div>
+        <div>
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content) }}
+        </div>
+        <div>
+            {{ form_label(form.author) }}
+            {{ form_widget(form.author) }}
+        </div>
+        <div>
+            {{ form_label(form.nb_views) }}
+            {{ form_widget(form.nb_views) }}
+        </div>
+        <div>
+            {{ form_row(form.published) }}
+        </div>
+    </div>
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block sub_body2 %} {% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {# S'il y a une erreur, on l'affiche dans un joli cadre rouge MODE ALERTE QUI TUE GRAVE #}
+    {% if error %}
+        <div class="alert alert-danger">{{ error.message }}</div>
+    {% endif %}
+
+    {# Le formulaire, avec URL de soumission vers la route << login_check >> #}
+    <form action="{{ path('login_check') }}" method="post" class="text-center">
+        <label for="username">Pseudo :</label>
+        <br/>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Entrer votre pseudo"/>
+        <br/>
+
+        <label for="password">Mot de passe :</label>
+        <br/>
+        <input type="password" id="password" name="_password" placeholder="Entrer votre mot de passe"/>
+        <br/>
+        <br/>
+        <input type="submit" value="Connexion" />
+    </form>
+
+{% endblock %}

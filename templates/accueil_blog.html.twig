@@ -1,0 +1,28 @@
+{# src/templates/accueil_blog.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %} {{ parent() }} - {{ 'title.home'|trans }} {% endblock %}
+
+{% block h1 %} << {{ 'h1.welcome'|trans }} >> {% endblock %}
+
+{% block navbar %}
+    {{ parent() }}
+    <li  class="nav-item">
+        <a class="nav-link" id="menubuttun" href="{{ path('add-article') }}">
+            {{ 'addArticle'|trans }}
+        </a>
+    </li>
+{% endblock %}
+
+{% block body %}
+
+    {% block sub_body %} {% endblock %}
+    <br>
+    <div class="text-center" id="accroche">
+        {{ 'body.sub_body.accroche'|trans }}
+    </div>
+    {% block pagination %} {% endblock %}
+
+{% endblock %}
+

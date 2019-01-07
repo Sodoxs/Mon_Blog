@@ -1,0 +1,19 @@
+title:
+  home: "Accueil"
+
+h1:
+  welcome: "Bienvenue sur notre blog !"
+  add: "ajouter"
+
+addArticle: "Ajouter un article"
+
+body:
+  sub_body:
+    accroche: "Je suis une poupée barbie! Dans un monde de barbie!"
+
+article:
+  title: "Titre"
+  content: "Description"
+  author: "Auteur"
+  nb_views: "nb_vues"
+  published: "publié"

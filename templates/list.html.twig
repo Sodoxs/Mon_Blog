@@ -1,0 +1,106 @@
+{# src/templates/list.html.twig #}
+
+{% extends "accueil_blog.html.twig" %}
+
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}"/>
+{% endblock %}
+{% block sub_body %}
+
+    <div class="text-center">page : {{ page }}</div>
+    <br>
+
+    {% for article in articles %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3">
+                    id : {{ article.id }}
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    titre : {{ article.title }}
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    description : {{ article.content | slice(0, max_char)}} :
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <a class="btn btn-info" href="/blog/article/{{ article.id }}">lien vers l'article</a>
+                </div>
+                <br>
+                {% for comment in article.comments %}
+                    <div class=" col-12 border border-top"></div>
+                    <div class="col-sm-12 col-md-6 text-center">
+                        Auteur : {{ comment.author }}
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-center">
+                        Commentaire : {{ comment.message }}
+                    </div>
+                {% endfor %}
+                <div class="col-12 border border-bottom"></div>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+
+{% endblock %}
+
+{% block pagination %}
+    <br>
+    <nav aria-label="pagination" id="pagination">
+        <ul class="pagination pagination-lg justify-content-center">
+
+            {% if page !=1 %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ path('list-article') }}">First</a>
+                </li>
+            {% endif %}
+
+            {% if page == 1 %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="/blog/list/{{ page }}">Previous</a>
+                </li>
+            {% endif %}
+            {% if page !=1 %}
+                <li class="page-item">
+                    <a class="page-link" href="/blog/list/{{ page-1 }}">Previous</a>
+                </li>
+            {% endif %}
+
+            {% for i in 1..totalpage %}
+                {% if page == i %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="/blog/list/{{ page }}">{{ i }}</a>
+                    </li>
+                {% endif %}
+                {% if page !=i %}
+                    <li class="page-item"><a class="page-link" href="/blog/list/{{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page == totalpage %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="/blog/list/{{ page }}">Next</a>
+                </li>
+            {% endif %}
+            {% if page !=totalpage %}
+                <li class="page-item">
+                    <a class="page-link" href="/blog/list/{{ page+1 }}">Next</a>
+                </li>
+            {% endif %}
+
+            {% if page !=totalpage %}
+                <li class="page-item">
+                    <a class="page-link" href="/blog/list/{{ totalpage }}">Last</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block sub_body2 %}
+{% endblock %}
+
+
+
+
+

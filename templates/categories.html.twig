@@ -1,0 +1,8 @@
+{# src/templates/categories.html.twig #}
+
+<div class="text-center">
+    Catégories :
+        {% for categorie in categories %}
+            <a class="btn btn-danger" href="/blog/category/{{ categorie.id }}">{{ categorie.name }}</a>
+        {% endfor %}
+</div>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Mon blog{% endblock %}</title>
+            {% block css %}
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+                <link rel="stylesheet" href="{{ asset('css/base.css') }}"/>
+            {% endblock %}
+    </head>
+
+    <body>
+    <header>
+        <div class="text-center">
+            {% block h1 %} Accueil {% endblock %}
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button id="menu-boutton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    {% block navbar %}
+                    <li class="nav-item">
+                        <a class="nav-link" id="menubuttun" href="{{ path('accueil') }}">Accueil</a>
+                    </li>
+                    <li  class="nav-item">
+                        <a class="nav-link" id="menubuttun" href="{{ path('accueil-blog') }}">Blog</a>
+                    </li>
+                        <li  class="nav-item">
+                            <a class="nav-link" id="menubuttun" href="{{ path('list-article') }}">Liste-Articles</a>
+                        </li>
+                    {% endblock %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3 text-center">
+                {% block left_navbar %}
+                    {% if is_granted('ROLE_USER') %}
+                        {{ render(controller('App\\Controller\\LeftMenuController::categoryAction')) }}
+                        {{ render(controller('App\\Controller\\LeftMenuController::lastArticlesAction', { 'max' : 3 } )) }}
+                    {% endif %}
+                {% endblock %}
+            </div>
+
+            <div class="col-md-9 text-center">
+
+                {% if not is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('login') }}">Se connecter</a>
+                {% else %}
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ app.user.username }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="{{ path('logout') }}">Se deconnecter</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% for message in app.session.flashBag.get('info') %}
+                    <div class="alert-danger">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+    {% block js %}
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    {% endblock %}
+
+</html>

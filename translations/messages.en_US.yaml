@@ -1,0 +1,20 @@
+title:
+  home: "Home"
+
+h1:
+  welcome: "Welcome!"
+  add: "add"
+
+addArticle: "Add an article"
+
+body:
+  sub_body:
+    accroche: "I'm a baby girl! In a baby world!"
+
+article:
+  title: "Title"
+  content: "Content"
+  author: "Author"
+  nb_views: "Nb_views"
+  published: "Published"
+

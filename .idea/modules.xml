@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../Symfony.3.4/LoirIlluminations/Loir_Illuminationsgit/Site/.idea/Site.iml" filepath="$PROJECT_DIR$/../../Symfony.3.4/LoirIlluminations/Loir_Illuminationsgit/Site/.idea/Site.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mon_blog.iml" filepath="$PROJECT_DIR$/.idea/mon_blog.iml" />
+    </modules>
+  </component>
+</project>
