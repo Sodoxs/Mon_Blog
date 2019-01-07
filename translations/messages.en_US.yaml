@@ -1,11 +1,6 @@
-title:
-  home: "Home"
-
 h1:
   welcome: "Welcome!"
   add: "add"
-
-addArticle: "Add an article"
 
 body:
   sub_body:
@@ -18,3 +13,17 @@ article:
   nb_views: "Nb_views"
   published: "Published"
 
+account:
+  login: "Login"
+  logout: "Logout"
+  connection: "Connection"
+  username: "Username"
+  password: "Password"
+
+listOfArticles: "List of Articles"
+addArticle: "Add an article"
+
+home: "Home"
+mon: "my"
+
+category|%count%: "Category|%count% Categories"

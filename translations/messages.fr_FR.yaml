@@ -1,11 +1,6 @@
-title:
-  home: "Accueil"
-
 h1:
   welcome: "Bienvenue sur notre blog !"
   add: "ajouter"
-
-addArticle: "Ajouter un article"
 
 body:
   sub_body:
@@ -17,3 +12,18 @@ article:
   author: "Auteur"
   nb_views: "nb_vues"
   published: "publié"
+
+account:
+  login: "Se connecter"
+  logout: "Se deconnecter"
+  connection: "Connexion"
+  username: "Identifiant"
+  password: "Mot de passe"
+
+listOfArticles: "Liste des articles"
+addArticle: "Ajouter un article"
+
+home: "Accueil"
+mon: "mon"
+
+category|%count%: "Categorie|%count% Categories"

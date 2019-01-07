@@ -109,7 +109,7 @@ class ArticleController extends AbstractController
         $articleViews->setNbViews($articleViews->getNbViews() + 1);
         $em->persist($article);
         $em->flush();
-        return $this->render('view.html.twig', array('article'=>$article, 'id'=>$id));
+        return $this->render('view.html.twig', array('article'=>$article, 'id'=>$id, 'nbviews'=>$articleViews->getNbViews()));
     }
 
     /**
