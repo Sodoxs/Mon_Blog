@@ -9,17 +9,19 @@
 
     {# Le formulaire, avec URL de soumission vers la route << login_check >> #}
     <form action="{{ path('login_check') }}" method="post" class="text-center">
-        <label for="username">Pseudo :</label>
+        <label for="username">{{ 'account.username'|trans }} :</label>
         <br/>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Entrer votre pseudo"/>
+        <input type="text" id="username" name="_username" value="{{ last_username }}"
+               placeholder="{{ 'account.enterUsername'|trans }}"/>
         <br/>
 
-        <label for="password">Mot de passe :</label>
+        <label for="password">{{ 'account.password'|trans }} :</label>
         <br/>
-        <input type="password" id="password" name="_password" placeholder="Entrer votre mot de passe"/>
+        <input type="password" id="password" name="_password"
+               placeholder="{{ 'account.enterPassword'|trans }}"/>
         <br/>
         <br/>
-        <input type="submit" value="Connexion" />
+        <input type="submit" value="{{ 'account.connection'|trans }}" />
     </form>
 
 {% endblock %}

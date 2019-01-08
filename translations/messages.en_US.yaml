@@ -1,6 +1,7 @@
 h1:
   welcome: "Welcome!"
-  add: "add"
+  add: "Add"
+  edit: "Edit"
 
 body:
   sub_body:
@@ -12,6 +13,14 @@ article:
   author: "Author"
   nb_views: "Nb_views"
   published: "Published"
+  add: "Article added"
+  fail: "Add fail"
+  edit: "Edit article"
+  delete: "Delete article"
+
+comment:
+  author: "Author"
+  comment: "Comment"
 
 account:
   login: "Login"
@@ -19,11 +28,23 @@ account:
   connection: "Connection"
   username: "Username"
   password: "Password"
+  enterUsername: "Your username"
+  enterPassword: "Your password"
+
+pagination:
+  first: "First"
+  previous: "Previous"
+  next: "Next"
+  last: "Last"
 
 listOfArticles: "List of Articles"
 addArticle: "Add an article"
+lastArticles: "Last articles"
+linkArticle: "Link to article"
 
 home: "Home"
 mon: "my"
+category: "category"
+categories: "categories"
 
-category|%count%: "Category|%count% Categories"
+category|{{ count }} categories: "Category|{{ count }} Categories"

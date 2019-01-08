@@ -22,14 +22,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     {% block navbar %}
-                    <li class="nav-item">
-                        <a class="nav-link" id="menubuttun" href="{{ path('accueil') }}">{{ 'home'|trans }}</a>
-                    </li>
-                    <li  class="nav-item">
-                        <a class="nav-link" id="menubuttun" href="{{ path('accueil-blog') }}">Blog</a>
-                    </li>
-                        <li  class="nav-item">
+                        <li class="nav-item">
+                            <a class="nav-link" id="menubuttun" href="{{ path('accueil') }}">{{ 'home'|trans }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="menubuttun" href="{{ path('accueil-blog') }}">Blog</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" id="menubuttun" href="{{ path('list-article') }}">{{ 'listOfArticles'|trans }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="menubuttun" href="/langueLocale/fr_FR">FR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="menubuttun" href="/langueLocale/en_US">EN</a>
                         </li>
                     {% endblock %}
                 </ul>

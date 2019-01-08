@@ -1,6 +1,6 @@
 {% extends "accueil_blog.html.twig" %}
 
-{% block h1 %} modifier - article {% endblock %}
+{% block h1 %} {{ 'h1.edit'|trans }} - article {% endblock %}
 
 {% block sub_body %}
     {{ form_start(form) }}

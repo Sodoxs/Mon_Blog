@@ -1,6 +1,7 @@
 h1:
   welcome: "Bienvenue sur notre blog !"
-  add: "ajouter"
+  add: "Ajouter"
+  edit: "Modifier"
 
 body:
   sub_body:
@@ -10,8 +11,16 @@ article:
   title: "Titre"
   content: "Description"
   author: "Auteur"
-  nb_views: "nb_vues"
-  published: "publié"
+  nb_views: "Nb_vues"
+  published: "Publié"
+  add: "Article ajouté"
+  fail: "Erreur à l'ajout"
+  edit: "Modifer l'article"
+  delete: "Supprimer l'article"
+
+comment:
+  author: "Auteur"
+  comment: "Commentaire"
 
 account:
   login: "Se connecter"
@@ -19,11 +28,23 @@ account:
   connection: "Connexion"
   username: "Identifiant"
   password: "Mot de passe"
+  enterUsername: "Entrer votre identifiant"
+  enterPassword: "Entrer votre mot de passe"
+
+pagination:
+  first: "Premier"
+  previous: "Precedent"
+  next: "Suivant"
+  last: "Dernier"
 
 listOfArticles: "Liste des articles"
 addArticle: "Ajouter un article"
+lastArticles: "Les derniers articles"
+linkArticle: "Lien vers l'article"
 
 home: "Accueil"
 mon: "mon"
+category: "catégorie"
+categories: "catégories"
 
-category|%count%: "Categorie|%count% Categories"
+category|{{ count }} categories: "Catégorie|{{ count }} Catégories"

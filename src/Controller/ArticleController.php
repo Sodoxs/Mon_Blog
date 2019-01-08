@@ -170,11 +170,13 @@ class ArticleController extends AbstractController
                 {
                     $em->persist($article);
                     $em->flush();
-                    $this->addFlash('info', "article ajouté");
+                    $this->addFlash('info', "article added");
                 }
                 catch(\Exception $e)
                 {
-                    $this->addFlash('info', "Erreur à l'ajout");
+                    $this->addFlash('info', "Added fail");
+                    #$msg = $this->get('translator')->trans('article.fail');
+                    #$this->addFlash('info', $msg);
                 }
                 return $this->redirectToRoute('accueil');
             }
@@ -194,7 +196,7 @@ class ArticleController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $article = $em->getRepository('App:Article')->findOneBy(array('id'=>$num));
         $form = $this->createForm(ArticleType::class, $article);
-        $form->add('Editer', SubmitType::class, ['label' => 'Modifer l\'article']);
+        $form->add('Editer', SubmitType::class, array('label' => 'article.edit'));
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())

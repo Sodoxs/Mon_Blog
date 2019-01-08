@@ -8,7 +8,7 @@
 {% endblock %}
 {% block sub_body %}
 
-    <div class="text-center">Categorie : {{ category.name }}</div>
+    <div class="text-center">{{ 'category'|trans }} : {{ category.name }}</div>
     <br>
 
     {% for article in articles %}
@@ -18,10 +18,10 @@
                     id : {{ article.id }}
                 </div>
                 <div class="col-12 col-sm-6 col-md-3">
-                    titre : {{ article.title }}
+                    {{ 'article.title'|trans }} : {{ article.title }}
                 </div>
                 <div class="col-12 col-sm-6 col-md-3">
-                    description : {{ article.content | slice(0, max_char)}} :
+                    {{ 'article.content'|trans }} : {{ article.content | slice(0, max_char)}} :
                 </div>
                 <div class="col-12 col-sm-6 col-md-3">
                     <a class="btn btn-info" href="/blog/article/{{ article.id }}">lien vers l'article</a>
@@ -30,10 +30,10 @@
                 {% for comment in article.comments %}
                     <div class=" col-12 border border-top"></div>
                     <div class="col-sm-12 col-md-6 text-center">
-                        Auteur : {{ comment.author }}
+                        {{ 'comment.author'|trans }} : {{ comment.author }}
                     </div>
                     <div class="col-sm-12 col-md-6 text-center">
-                        Commentaire : {{ comment.message }}
+                        {{ 'comment.comment'|trans }} : {{ comment.message }}
                     </div>
                 {% endfor %}
                 <div class="col-12 border border-bottom"></div>

@@ -9,18 +9,18 @@
 {% block sub_body %}
     <br>
     id : {{ article.id }} |
-    titre : {{ article.title }} |
-    auteur : {{ article.author }} |
-    description : {{ article.content }} :
+    {{ 'article.title'|trans }} : {{ article.title }} |
+    {{ 'article.author'|trans }} : {{ article.author }} |
+    {{ 'article.content'|trans }} : {{ article.content }} :
     <br><br>
-    <div class="text-center">Catégories : </div>
+    <div class="text-center">{{ 'categories'|trans }} : </div>
     <div class="text-center">
         {% for category in article.categories %}
             | {{ category.name }} |
         {% endfor %}
     </div>
     <br>
-    <a class="btn btn-info" href="/blog/article/edit/{{ article.id }}">Modifier l'article</a>
-    <a class="btn btn-danger" href="/blog/article/delete/{{ article.id }}">Supprimer l'article</a>
+    <a class="btn btn-info" href="/blog/article/edit/{{ article.id }}">{{ 'article.edit'|trans }}</a>
+    <a class="btn btn-danger" href="/blog/article/delete/{{ article.id }}">{{ 'article.delete'|trans }}</a>
 
 {% endblock %}

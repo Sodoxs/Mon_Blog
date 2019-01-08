@@ -36,7 +36,6 @@ class LeftMenuController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('App\Entity\Category')->findAll();
         $count = count($categories);
-        $msg = $this->get('translator')->transChoice(category|%count%, $count);
-        return $this->render('categories.html.twig', array('categories'=>$categories, 'count'=>$count, 'msg'=>$msg));
+        return $this->render('categories.html.twig', array('categories'=>$categories, 'count'=>$count));
     }
 }
